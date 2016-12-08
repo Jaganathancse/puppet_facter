@@ -1,6 +1,6 @@
 require 'puppet'
 
-Puppet::Type.type(:vs_options).provide(:dpdk) do
+Puppet::Type.type(:dpdk_options).provide(:dpdk) do
   desc 'Write dpdk options in /etc/sysconfig/openvswitch file'
 
   def exists?

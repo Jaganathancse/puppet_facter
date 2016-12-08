@@ -50,7 +50,7 @@ describe 'vswitch::dpdk' do
       end
 
       it 'configures dpdk options for ovs' do
-        is_expected.to contain_vs_options('/etc/sysconfig/openvswitch').with(
+        is_expected.to contain_dpdk_options('/etc/sysconfig/openvswitch').with(
           :path   => '/etc/sysconfig/openvswitch',
           :core_list => params[:core_list],
           :memory_channels => params[:memory_channels],
@@ -64,7 +64,7 @@ describe 'vswitch::dpdk' do
         params.merge!(:socket_mem => '1024')
       end
       it 'configures dpdk options with socket memory' do
-        is_expected.to contain_vs_options('/etc/sysconfig/openvswitch').with(
+        is_expected.to contain_dpdk_options('/etc/sysconfig/openvswitch').with(
           :path   => '/etc/sysconfig/openvswitch',
           :core_list => params[:core_list],
           :memory_channels => params[:memory_channels],
@@ -80,7 +80,7 @@ describe 'vswitch::dpdk' do
         facts.merge!({ :pci_address_driver_test => '0000:00:05.0,0000:00:05.1' })
       end
       it 'configures dpdk options with pci address for driver test' do
-        is_expected.to contain_vs_options('/etc/sysconfig/openvswitch').with(
+        is_expected.to contain_dpdk_options('/etc/sysconfig/openvswitch').with(
           :path   => '/etc/sysconfig/openvswitch',
           :core_list => params[:core_list],
           :memory_channels => params[:memory_channels],

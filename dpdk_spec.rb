@@ -1,9 +1,9 @@
 
 require 'puppet'
 require 'spec_helper'
-require 'puppet/provider/vs_options/dpdk'
+require 'puppet/provider/dpdk_options/dpdk'
 
-provider_class = Puppet::Type.type(:vs_options).
+provider_class = Puppet::Type.type(:dpdk_options).
   provider(:dpdk)
 
 describe provider_class do
@@ -21,7 +21,7 @@ describe provider_class do
 
   describe 'when setting the attributes' do
     let :resource do
-      Puppet::Type::Vs_options.new(dpdk_conf)
+      Puppet::Type::Dpdk_options.new(dpdk_conf)
     end
 
     let :provider do

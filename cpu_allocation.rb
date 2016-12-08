@@ -6,9 +6,6 @@ numa_lines=numa_list.split("\n")
 numa_nodes_core_info=Array.new
 numa_nodes_pci_address=Array.new
 
-# TEST
-#numa_lines << "NUMA node1 CPU(s):     4-10"
-
 numa_lines.each_with_index do |line,index|
   numa_nodes_core_info[index] = Hash.new
   cpu_range = line.split(':').last.strip()

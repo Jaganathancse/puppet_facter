@@ -50,7 +50,7 @@ class vswitch::dpdk (
   case $::osfamily {
     'Redhat': {
        # Set DPDK_OPTIONS to openvswitch
-       vs_options { '/etc/sysconfig/openvswitch':
+       dpdk_options { '/etc/sysconfig/openvswitch':
          ensure => present,
          path => '/etc/sysconfig/openvswitch',
          pci_list => $pci_list,

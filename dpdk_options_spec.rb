@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Puppet::Type.type(:vs_options) do
+describe Puppet::Type.type(:dpdk_options) do
   it "should support valid value all params" do
     expect do
       described_class.new(:path =>'/etc/sysconfig/openvswitch' ,:core_list => '1,2', :pci_list =>'0000:00:01.1,0000:00:01.3', :socket_memory => '1024',:memory_channels =>'2', :ensure => :present)

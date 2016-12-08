@@ -1,7 +1,7 @@
 require 'puppet'
 require 'facter'
 
-Puppet::Type.newtype(:vs_options) do
+Puppet::Type.newtype(:dpdk_options) do
   desc 'DPDK Options'
 
   ensurable
