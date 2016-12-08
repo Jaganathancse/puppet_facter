@@ -4,7 +4,7 @@ Puppet::Type.type(:vs_options).provide(:dpdk) do
   desc 'Write dpdk options in /etc/sysconfig/openvswitch file'
 
   def exists?
-    exists  = get_dpdk_line == resource[:line]
+    exists  = get_dpdk_line == get_updated_dpdk_line
   end
 
   def create

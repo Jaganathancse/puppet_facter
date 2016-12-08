@@ -21,13 +21,10 @@ Puppet::Type.newtype(:vs_options) do
   newparam(:memory_channels) do
     desc 'Memory channels'
     validate do |value|
-      if !/^\d+$/.match(value) || value=="0"
+      if !/^\d+$/.match(value) || value=="0" || value==" "
         fail("Invalid memory channels #{value}")        
       end 
     end
-  end
-  newparam(:line) do
-    desc 'dpdk options line'
   end
   validate do      
     cpu_core_list = self[:core_list].split(",")
@@ -61,8 +58,8 @@ Puppet::Type.newtype(:vs_options) do
     end
     socket_memory=self[:socket_memory].split(",")
     numa_nodes_list.each do |node|
-      if(socket_memory[node]=="0" || socket_memory[node].length==0)
-        puts socket_memory[node]
+      if(socket_memory[node]=="0" || socket_memory[node]==" " || socket_memory[node].length==0)
+        #puts socket_memory[node]
         fail("Invalid socket memory #{self[:socket_memory]}")
       end
     end
