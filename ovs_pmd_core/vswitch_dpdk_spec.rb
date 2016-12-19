@@ -22,7 +22,7 @@ describe 'vswitch::dpdk' do
   shared_examples_for 'vswitch::dpdk on RedHat' do
     let(:params) { default_params }
     context 'should raise error when not passing either host_core_list or core_list' do
-      it_raises 'a Puppet::Error', /either host core list or core list must be set for ovs agent when DPDK is enabled/
+      it_raises 'a Puppet::Error', /host_core_list must be set for ovs agent when DPDK is enabled/
     end
 
     context 'basic parameters' do
@@ -86,7 +86,6 @@ describe 'vswitch::dpdk' do
       before :each do
         params.merge!(:core_list => '5,6')
       end
- 
       it 'configures dpdk options with core list' do
         is_expected.to contain_file_line('/etc/sysconfig/openvswitch').with(
           :path   => '/etc/sysconfig/openvswitch',
@@ -158,7 +157,6 @@ describe 'vswitch::dpdk' do
         is_expected.to_not contain_vs_config('other_config:pmd-cpu-mask')
       end
     end
-    
   end
 
   on_supported_os({
