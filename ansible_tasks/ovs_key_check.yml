@@ -1,0 +1,13 @@
+---
+- name: ovs key configured or not
+  hosts: local
+  vars:
+    key: pmd-cpu-mask
+
+  tasks:
+   - name: ovs key configured or not"
+     command: ovs-vsctl get Open_vSwitch . other_config:{{key}}
+     register: out
+
+   - debug: var=out.stdout_lines
+
