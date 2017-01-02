@@ -1,0 +1,15 @@
+---
+- name: reboot the server and run ovs-vsctl show command
+  hosts: dpdk-compute
+  vars:
+    retry: 100
+    error_count: 0
+    loop_count: 0
+  tasks:
+    - name: restart server and check command output
+      include:  dpdk_node_restart.yml
+      with_sequence: count={{ retry }}
+
+    - name: print total error count
+      debug:
+        msg: "Total error displayed count: {{ error_count }}"

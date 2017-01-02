@@ -1,0 +1,5 @@
+[local]
+localhost
+
+[dpdk-compute]
+puppet1 ansible_ssh_host=192.168.100.137 ansible_user=root
