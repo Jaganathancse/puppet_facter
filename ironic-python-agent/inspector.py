@@ -346,72 +346,77 @@ def collect_pci_devices_info(data, failures):
     data['pci_devices'] = pci_devices_info
 
 
-def get_numa_node_memory_info(numa_node_path, numa_node_dir):
-    numa_node_memory ={}
-    memory_available_kb = 0
-    try:
-        with open(os.path.join(numa_node_path, numa_node_dir,
+def get_numa_nodes_memory_info(numa_node_path, numa_node_dirs):
+    ram = []
+    for numa_node_dir in numa_node_dirs:
+        if (not os.path.isdir(os.path.join(numa_node_path, numa_node_dir))
+            or not numa_node_dir.startswith("node")):
+            continue
+        numa_node_memory ={}
+        memory_available_kb = 0
+        try:
+            with open(os.path.join(numa_node_path, numa_node_dir,
                   'meminfo')) as meminfo_file:
-            for line in meminfo_file:
-                if "MemTotal:" in line:
-                    memory_available_kb = int(line.split(":")[1].strip().split(" ")[0].strip())
-                    break
-        numa_node_memory['numa_node'] = int(numa_node_dir[4:])
-        numa_node_memory['size_kb'] = memory_available_kb
-    except OSError as exc:
-        msg = 'Failed to get meminfo : %s', exc
-        failures.add(msg, exc)
-    return numa_node_memory
+                meminfo_lines = meminfo_file.read().split('\n')
+                for line in meminfo_lines:
+                    if "MemTotal:" in line:
+                        memory_available_kb = int(line.split(":")[1].strip().split(" ")[0].strip())
+                        break
+                numa_node_memory['numa_node'] = int(numa_node_dir[4:])
+                numa_node_memory['size_kb'] = memory_available_kb
+            ram.append(numa_node_memory)
+        except IOError as exc:
+            LOG.warning('Failed to get meminfo for numa_node %s: %s', 
+                            numa_node_dir, exc)
+    return ram
 
 
-def get_numa_node_cores_info(numa_node_path, numa_node_dir):
+def get_numa_nodes_cores_info(numa_node_path, numa_node_dirs):
     cpus = []
-    try:
-        thread_dirs = os.listdir(os.path.join(numa_node_path, numa_node_dir))
-    except OSError as exc:
-        msg = 'Failed to get list of threads : %s', exc
-        failures.add(msg, exc)
-        return
+    for numa_node_dir in numa_node_dirs:
+        if (not os.path.isdir(os.path.join(numa_node_path, numa_node_dir))
+            or not numa_node_dir.startswith("node")):
+            continue
+        try:
+            thread_dirs = os.listdir(os.path.join(numa_node_path, numa_node_dir))
+        except OSError as exc:
+            LOG.warning('Failed to get list of threads for numa_node %s: %s',    
+                            numa_node_dir, exc)
 
-    for thread_dir in thread_dirs:
-         if (not os.path.isdir(os.path.join(numa_node_path,
-             numa_node_dir, thread_dir)) or not thread_dir.startswith("cpu")):
-             continue
-         try:
-             is_cpu_id_available = False
-             thread_id = int(thread_dir[3:])
-             numa_node_id = int(numa_node_dir[4:])
-             with open(os.path.join(numa_node_path, numa_node_dir,
-                       thread_dir, 'topology',
-                       'core_id')) as core_id_file:
-                 cpu_id = int(core_id_file.read().strip())
-                 if cpus:
-                     for c in cpus:
-                         if (cpu_id == c['cpu'] and not thread_id in c['thread_siblings']):
-                             c['thread_siblings'].append(thread_id)
-                             is_cpu_id_available = True
-                             break
-                 if not is_cpu_id_available:
-                     cpu_item = {}
-                     cpu_item['thread_siblings'] = [thread_id]
-                     cpu_item['cpu'] = cpu_id
-                     cpu_item['numa_node'] = numa_node_id
-                     cpus.append(cpu_item)
-         except IOError as exc:
-             LOG.warning('Failed to gather cpu_id for thread'
-                         '%s numa_node %s: %s', thread_dir,
-                         numa_node_dir, exc)
+        for thread_dir in thread_dirs:
+            if (not os.path.isdir(os.path.join(numa_node_path,
+                numa_node_dir, thread_dir)) or not thread_dir.startswith("cpu")):
+                continue
+            try:
+                is_cpu_id_exists = False
+                thread_id = int(thread_dir[3:])
+                numa_node_id = int(numa_node_dir[4:])
+                with open(os.path.join(numa_node_path, numa_node_dir,
+                          thread_dir, 'topology',
+                          'core_id')) as core_id_file:
+                     cpu_id = int(core_id_file.read().strip())
+                     if cpus:
+                         for c in cpus:
+                             if (cpu_id == c['cpu'] and not thread_id in c['thread_siblings']):
+                                 c['thread_siblings'].append(thread_id)
+                                 is_cpu_id_exists = True
+                                 break
+                     if not is_cpu_id_exists:
+                         cpu_item = {}
+                         cpu_item['thread_siblings'] = [thread_id]
+                         cpu_item['cpu'] = cpu_id
+                         cpu_item['numa_node'] = numa_node_id
+                         cpus.append(cpu_item)
+                
+            except IOError as exc:
+                LOG.warning('Failed to gather cpu_id for thread'
+                            '%s numa_node %s: %s', thread_dir,
+                            numa_node_dir, exc)
     return cpus
 
 
-def get_numa_nodes_nics_info(nic_device_path):
+def get_numa_nodes_nics_info(nic_device_path, nic_dirs):
     nics = []
-    try:
-        nic_dirs = os.listdir(nic_device_path)
-    except OSError as exc:
-        msg = 'Failed to get list of NICs'
-        failures.add(msg, exc)
-        return
     for nic_dir in nic_dirs:
         if (not os.path.exists(os.path.join(nic_device_path, nic_dir, 'device'))
             or not os.path.isdir(os.path.join(nic_device_path, nic_dir, 'device'))
@@ -459,28 +464,23 @@ def collect_numa_topology_info(data, failures):
     :param failures: AccumulatedFailures object
     """
     numa_node_path = '/sys/devices/system/node/'
-    nic_device_path = '/sys/class/net/'
+    numa_topology = {}
     try:
         numa_node_dirs = os.listdir(numa_node_path)
+        numa_topology['ram'] = get_numa_nodes_memory_info(numa_node_path, numa_node_dirs)
+        numa_topology['cpus'] = get_numa_nodes_cores_info(numa_node_path, numa_node_dirs)
     except OSError as exc:
         msg = 'Failed to get list of NUMA nodes: %s'
         failures.add(msg, exc)
         return
-    numa_topology = {}
-    ram = []
-    cpus = []
-    nics = []
-    for numa_node_dir in numa_node_dirs:
-        if (not os.path.isdir(os.path.join(numa_node_path, numa_node_dir))
-            or not numa_node_dir.startswith("node")):
-            continue
-        numa_node_memory = get_numa_node_memory_info(numa_node_path, numa_node_dir)
-        ram.append(numa_node_memory)
-        numa_node_cpus = get_numa_node_cores_info(numa_node_path, numa_node_dir)
-        for cpu in numa_node_cpus:
-            cpus.append(cpu)
-    nics = get_numa_nodes_nics_info(nic_device_path)
-    numa_topology['ram'] = ram
-    numa_topology['cpus'] = cpus
-    numa_topology['nics'] = nics
+
+    nic_device_path = '/sys/class/net/'
+    try:
+        nic_dirs = os.listdir(nic_device_path)
+        numa_topology['nics'] = get_numa_nodes_nics_info(nic_device_path, nic_dirs)
+    except OSError as exc:
+        msg = 'Failed to get list of NICs: %s'
+        failures.add(msg, exc)
+        return
+
     data['numa_topology'] = numa_topology
