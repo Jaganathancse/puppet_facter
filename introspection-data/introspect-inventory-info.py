@@ -1,3 +1,4 @@
+#To read inventory hardware information from introspection data
 #!/usr/bin/python
 
 import subprocess
