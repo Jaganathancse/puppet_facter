@@ -1,0 +1,81 @@
+Introspection Data
+Inventory Hardware Data - Output Format
+
+#Node : 8abe382e-3c97-4818-be22-1de32e2e6a3d
+
+CPU: count: 2,frequency: 2194.920,architecture: x86_64,model_name: Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz
+
+RAM: physical_mb: 8192,total: 7.8 GB
+
+System: serial_number: Not Specified,product_name: KVM,manufacturer: Red Hat
+
+Boot Info: current_boot_mode: bios,pxe_interface: 00:e0:76:96:2f:89
+Disks: Count-1
+Disk-1: rotational: True,vendor: 0x1af4,name: /dev/vda,wwn_vendor_extension: None,wwn_with_extension: None,model: ,wwn: None,serial: None,size: 50.0 GB
+
+NICs: Count-1
+NIC-1: lldp: [],product: 0x0001,vendor: 0x1af4,name: eth0,has_carrier: True,switch_port_descr: None,switch_chassis_descr: None,ipv4_address: 192.168.24.100,mac_address: 00:e0:76:96:2f:89
+
+-------------
+
+#Node : 5fee1169-ad0a-41d3-ba5d-8f6741a8f0fd
+
+CPU: count: 2,frequency: 2194.920,architecture: x86_64,model_name: Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz
+
+RAM: physical_mb: 8192,total: 7.8 GB
+
+System: serial_number: Not Specified,product_name: KVM,manufacturer: Red Hat
+
+Boot Info: current_boot_mode: bios,pxe_interface: 00:e0:76:96:2f:8d
+Disks: Count-1
+Disk-1: rotational: True,vendor: 0x1af4,name: /dev/vda,wwn_vendor_extension: None,wwn_with_extension: None,model: ,wwn: None,serial: None,size: 50.0 GB
+
+NICs: Count-1
+NIC-1: lldp: [],product: 0x0001,vendor: 0x1af4,name: eth0,has_carrier: True,switch_port_descr: None,switch_chassis_descr: None,ipv4_address: 192.168.24.100,mac_address: 00:e0:76:96:2f:8d
+
+-------------
+
+
+Extra Hardware Data - Output Format
+
+#Node : 8abe382e-3c97-4818-be22-1de32e2e6a3d
+
+CPU: physical: 2, logical: 2
+physical 0: product: Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz,enabled_cores: 1,vendor: Intel Corp.,version: RHEL 7.3.0 PC (i440FX + PIIX, 1996),threads: 1,frequency: 2000000000.0,cores: 1,physid: 400
+physical 1: product: Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz,enabled_cores: 1,vendor: Intel Corp.,version: RHEL 7.3.0 PC (i440FX + PIIX, 1996),threads: 1,frequency: 2000000000.0,cores: 1,physid: 401
+
+RAM: 8.0 GB
+
+System: version: RHEL 7.3.0 PC (i440FX + PIIX, 1996),vendor: Red Hat,uuid: FE1531C2-1C0E-4CD4-B120-92C779084C30,name: KVM
+Kernel: cmdline: ipa-inspection-callback-url=http://192.168.24.1:5050/v1/continue ipa-inspection-collectors=default,extra-hardware,logs systemd.journald.forward_to_console=yes BOOTIF=00:e0:76:96:2f:89 ipa-debug=1 ipa-inspection-dhcp-all-interfaces=1 ipa-collect-lldp=1 initrd=agent.ramdisk,version: 3.10.0-514.6.1.el7.x86_64,arch: x86_64
+
+Firmware: date: 04/01/2014,version: 1.9.1-5.el7_3.1,vendor: SeaBIOS
+Disk: logical: 1
+Disk-1 Name-vda: vendor: 0x1af4,physical_block_size: 512,rotational: 1,optimal_io_size: 0,size: 53
+
+NICS: 
+NIC-1 Name-eth0: vlan-challenged: off [fixed],tx-udp_tnl-segmentation: off [fixed],tx-vlan-stag-hw-insert: off [fixed],rx-vlan-stag-filter: off [fixed],highdma: on [fixed],tx-nocache-copy: off,tx-gso-robust: off [fixed],fcoe-mtu: off [fixed],netns-local: off [fixed],ipv4-network: 192.168.24.0,serial: 00:e0:76:96:2f:89,l2-fwd-offload: off [fixed],large-receive-offload: off [fixed],tx-checksumming/tx-checksum-ipv6: off [fixed],tx-checksumming/tx-checksum-ipv4: off [fixed],tx-fcoe-segmentation: off [fixed],tx-mpls-segmentation: off [fixed],tcp-segmentation-offload: on,rx-vlan-offload: off [fixed],tx-gre-segmentation: off [fixed],tx-checksumming/tx-checksum-ip-generic: on,tcp-segmentation-offload/tx-tcp-ecn-segmentation: on,tx-sctp-segmentation: off [fixed],tx-checksumming/tx-checksum-fcoe-crc: off [fixed],ipv4: 192.168.24.100,ipv4-cidr: 24,rx-vlan-stag-hw-parse: off [fixed],tx-vlan-offload: off [fixed],udp-fragmentation-offload: on,driver: virtio_net,tx-checksumming/tx-checksum-sctp: off [fixed],tx-checksumming: on,tx-sit-segmentation: off [fixed],busy-poll: off [fixed],scatter-gather/tx-scatter-gather: on,generic-receive-offload: on,rx-all: off [fixed],tx-ipip-segmentation: off [fixed],tcp-segmentation-offload/tx-tcp6-segmentation: on,rx-checksumming: on [fixed],tcp-segmentation-offload/tx-tcp-segmentation: on,generic-segmentation-offload: on,loopback: off [fixed],tx-lockless: off [fixed],ipv4-netmask: 255.255.255.0,businfo: virtio@0,ntuple-filters: off [fixed],rx-vlan-filter: on [fixed],receive-hashing: off [fixed],scatter-gather/tx-scatter-gather-fraglist: off [fixed],link: yes,rx-fcs: off [fixed],scatter-gather: on,hw-tc-offload: off [fixed]
+
+-------------
+
+#Node : 5fee1169-ad0a-41d3-ba5d-8f6741a8f0fd
+
+CPU: physical: 2, logical: 2
+physical 0: product: Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz,enabled_cores: 1,vendor: Intel Corp.,version: RHEL 7.3.0 PC (i440FX + PIIX, 1996),threads: 1,frequency: 2000000000.0,cores: 1,physid: 400
+physical 1: product: Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz,enabled_cores: 1,vendor: Intel Corp.,version: RHEL 7.3.0 PC (i440FX + PIIX, 1996),threads: 1,frequency: 2000000000.0,cores: 1,physid: 401
+
+RAM: 8.0 GB
+
+System: version: RHEL 7.3.0 PC (i440FX + PIIX, 1996),vendor: Red Hat,uuid: 720CB959-EFCC-41D0-A7B0-17069A33D878,name: KVM
+Kernel: cmdline: ipa-inspection-callback-url=http://192.168.24.1:5050/v1/continue ipa-inspection-collectors=default,extra-hardware,logs systemd.journald.forward_to_console=yes BOOTIF=00:e0:76:96:2f:8d ipa-debug=1 ipa-inspection-dhcp-all-interfaces=1 ipa-collect-lldp=1 initrd=agent.ramdisk,version: 3.10.0-514.6.1.el7.x86_64,arch: x86_64
+
+Firmware: date: 04/01/2014,version: 1.9.1-5.el7_3.1,vendor: SeaBIOS
+Disk: logical: 1
+Disk-1 Name-vda: vendor: 0x1af4,physical_block_size: 512,rotational: 1,optimal_io_size: 0,size: 53
+
+NICS: 
+NIC-1 Name-eth0: vlan-challenged: off [fixed],tx-udp_tnl-segmentation: off [fixed],tx-vlan-stag-hw-insert: off [fixed],rx-vlan-stag-filter: off [fixed],highdma: on [fixed],tx-nocache-copy: off,tx-gso-robust: off [fixed],fcoe-mtu: off [fixed],netns-local: off [fixed],ipv4-network: 192.168.24.0,serial: 00:e0:76:96:2f:8d,l2-fwd-offload: off [fixed],large-receive-offload: off [fixed],tx-checksumming/tx-checksum-ipv6: off [fixed],tx-checksumming/tx-checksum-ipv4: off [fixed],tx-fcoe-segmentation: off [fixed],tx-mpls-segmentation: off [fixed],tcp-segmentation-offload: on,rx-vlan-offload: off [fixed],tx-gre-segmentation: off [fixed],tx-checksumming/tx-checksum-ip-generic: on,tcp-segmentation-offload/tx-tcp-ecn-segmentation: on,tx-sctp-segmentation: off [fixed],tx-checksumming/tx-checksum-fcoe-crc: off [fixed],ipv4: 192.168.24.100,ipv4-cidr: 24,rx-vlan-stag-hw-parse: off [fixed],tx-vlan-offload: off [fixed],udp-fragmentation-offload: on,driver: virtio_net,tx-checksumming/tx-checksum-sctp: off [fixed],tx-checksumming: on,tx-sit-segmentation: off [fixed],busy-poll: off [fixed],scatter-gather/tx-scatter-gather: on,generic-receive-offload: on,rx-all: off [fixed],tx-ipip-segmentation: off [fixed],tcp-segmentation-offload/tx-tcp6-segmentation: on,rx-checksumming: on [fixed],tcp-segmentation-offload/tx-tcp-segmentation: on,generic-segmentation-offload: on,loopback: off [fixed],tx-lockless: off [fixed],ipv4-netmask: 255.255.255.0,businfo: virtio@0,ntuple-filters: off [fixed],rx-vlan-filter: on [fixed],receive-hashing: off [fixed],scatter-gather/tx-scatter-gather-fraglist: off [fixed],link: yes,rx-fcs: off [fixed],scatter-gather: on,hw-tc-offload: off [fixed]
+
+-------------
+
+
