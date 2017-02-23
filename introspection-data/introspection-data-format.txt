@@ -78,4 +78,33 @@ NIC-1 Name-eth0: vlan-challenged: off [fixed],tx-udp_tnl-segmentation: off [fixe
 
 -------------
 
+NUMA Topology Data - Output Format
+
+#Node : 8abe382e-3c97-4818-be22-1de32e2e6a3d
+
+CPU's:
+numa_node: 0,cpu: 0,thread_siblings: [0, 1]
+
+
+RAM: 
+numa_node: 0,size_kb: 8180200
+
+NICs: count-1
+numa_node: 0,name: enp0s25
+
+-------------
+
+#Node : 5fee1169-ad0a-41d3-ba5d-8f6741a8f0fd
+
+CPU's:
+numa_node: 0,cpu: 0,thread_siblings: [0, 1]
+
+
+RAM: 
+numa_node: 0,size_kb: 8180200
+
+NICs: count-1
+numa_node: 0,name:enp0s01
+
+-------------
 
