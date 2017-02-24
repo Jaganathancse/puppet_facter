@@ -1,4 +1,101 @@
 Introspection Data
+
+Introspection Hardware Data - JSON Format
+
+#Node : 8abe382e-3c97-4818-be22-1de32e2e6a3d
+
+{"cpu_arch": "x86_64", "macs": ["00:e0:76:96:2f:89"], "root_disk": {"rotational": true, "vendor": "0x1af4", "name": "/dev/vda", "wwn_vendor_extension": null,
+"hctl": null, "wwn_with_extension": null, "model": "", "wwn": null, "serial": null, "size": 53687091200}, extra": {"network": {"eth0": {"vlan-challenged": 
+"off [fixed]", "rx-vlan-offload": "off [fixed]", "ipv4-network": "192.168.24.0", "rx-vlan-stag-filter": "off [fixed]", "highdma": "on [fixed]", 
+"tx-nocache-copy": "off", "tx-gso-robust": "off [fixed]", "tx-checksumming/tx-checksum-ip-generic": "on", "tx-vlan-stag-hw-insert": "off [fixed]", 
+"serial": "00:e0:76:96:2f:89", "tx-mpls-segmentation": "off [fixed]", "l2-fwd-offload": "off [fixed]", "large-receive-offload": "off [fixed]", 
+"tx-checksumming/tx-checksum-ipv6": "off [fixed]", "tx-checksumming/tx-checksum-ipv4": "off [fixed]", "ipv4-netmask": "255.255.255.0", 
+"tcp-segmentation-offload/tx-tcp-segmentation": "on", "tcp-segmentation-offload": "on", "tx-udp_tnl-segmentation": "off [fixed]", "tx-gre-segmentation": 
+"off [fixed]", "fcoe-mtu": "off [fixed]", "tcp-segmentation-offload/tx-tcp-ecn-segmentation": "on", "tx-sctp-segmentation": "off [fixed]", 
+"tx-checksumming/tx-checksum-fcoe-crc": "off [fixed]", "ipv4": "192.168.24.100", "businfo": "virtio@0", "rx-vlan-stag-hw-parse": "off [fixed]", 
+"tx-vlan-offload": "off [fixed]", "tx-checksumming": "on", "udp-fragmentation-offload": "on", "tx-checksumming/tx-checksum-sctp": "off [fixed]", 
+"driver": "virtio_net", "tx-sit-segmentation": "off [fixed]", "busy-poll": "off [fixed]", "scatter-gather/tx-scatter-gather-fraglist": "off [fixed]", 
+"link": "yes", "rx-all": "off [fixed]", "tx-ipip-segmentation": "off [fixed]", "tcp-segmentation-offload/tx-tcp6-segmentation": "on", "rx-checksumming": 
+"on [fixed]", "loopback": "off [fixed]", "generic-segmentation-offload": "on", "tx-fcoe-segmentation": "off [fixed]", "tx-lockless": "off [fixed]", 
+"ipv4-cidr": 24, "ntuple-filters": "off [fixed]", "rx-vlan-filter": "on [fixed]", "receive-hashing": "off [fixed]", "scatter-gather/tx-scatter-gather": "on",
+"generic-receive-offload": "on", "rx-fcs": "off [fixed]", "scatter-gather": "on", "hw-tc-offload": "off [fixed]", "netns-local": "off [fixed]"}}, 
+"firmware": {"bios": {"date": "04/01/2014", "version": "1.9.1-5.el7_3.1", "vendor": "SeaBIOS"}}, "system": {"kernel": {"cmdline": 
+"ipa-inspection-callback-url=http://192.168.24.1:5050/v1/continue ipa-inspection-collectors=default,logs,extra-hardware systemd.journald.forward_to_console=
+yes BOOTIF=00:e0:76:96:2f:89 ipa-debug=1 ipa-inspection-dhcp-all-interfaces=1 ipa-collect-lldp=1 initrd=agent.ramdisk", "version": 
+"3.10.0-514.6.1.el7.x86_64", "arch": "x86_64"}, "product": {"version": "RHEL 7.3.0 PC (i440FX + PIIX, 1996)", "vendor": "Red Hat", "name": "KVM", 
+"uuid": "FE1531C2-1C0E-4CD4-B120-92C779084C30"}}, "memory": {"total": {"size": 8589934592}}, "disk": {"vda": {"vendor": "0x1af4", "physical_block_size": 512,
+ "rotational": 1, "optimal_io_size": 0, "size": 53}, "logical": {"count": 1}}, "cpu": {"physical_0": {"physid": 400, "product": 
+"Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz", "enabled_cores": 1, "vendor": "Intel Corp.", "frequency": 2000000000, "version": 
+"RHEL 7.3.0 PC (i440FX + PIIX, 1996)", "threads": 1, "cores": 1, "flags": "fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat
+pse36 clflush mmx fxsr sse sse2 ss syscall nx rdtscp x86-64 constant_tsc rep_good nopl eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic 
+movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat tpr_shadow vnmi flexpriority ept vpid fsgsbase 
+tsc_adjust bmi1 hle avx2 smep bmi2 erms rtm rdseed adx smap xsaveopt"}, "physical_1": {"physid": 401, "product": "Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz",
+"enabled_cores": 1, "vendor": "Intel Corp.", "frequency": 2000000000, "version": "RHEL 7.3.0 PC (i440FX + PIIX, 1996)", "threads": 1, "cores": 1, 
+"flags": "fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx rdtscp x86-64 
+constant_tsc rep_good nopl eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand 
+hypervisor lahf_lm abm 3dnowprefetch arat tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms rtm rdseed adx smap 
+xsaveopt"}, "logical": {"number": 2}, "physical": {"number": 2}}}, "all_interfaces": {"eth0": {"ip": "192.168.24.100", "mac": "00:e0:76:96:2f:89"}}, 
+"cpus": 2, "boot_interface": "00:e0:76:96:2f:89", "memory_mb": 8192, "ipmi_address": "", "numa_topology": {"nics": [{“numa_node”: 0, ”name”: “enp0s25”}], 
+"ram": [{"numa_node": 0, "size_kb": 8180200}], "cpus": [{"numa_node": 0, "thread_siblings": [0, 1], "cpu": 0}]}, "error": null, "local_gb": 49, 
+"interfaces": {"eth0": {"ip": "192.168.24.100", "mac": "00:e0:76:96:2f:89"}}, "inventory": {"bmc_address": "", "interfaces": [{"lldp": [], "product": 
+"0x0001", "vendor": "0x1af4", "name": "eth0", "has_carrier": true, "ipv4_address": "192.168.24.100", "client_id": null, "mac_address": "00:e0:76:96:2f:89"}],
+"disks": [{"rotational": true, "vendor": "0x1af4", "name": "/dev/vda", "wwn_vendor_extension": null, "hctl": null, "wwn_with_extension": null, "model": "", 
+"wwn": null, "serial": null, "size": 53687091200}], "boot": {"current_boot_mode": "bios", "pxe_interface": "00:e0:76:96:2f:89"}, "system_vendor": {
+"serial_number": "Not Specified", "product_name": "KVM", "manufacturer": "Red Hat"}, "memory": {"physical_mb": 8192, "total": 8376524800}, 
+"cpu": {"count": 2, "frequency": "2194.920", "flags": ["fpu", "vme", "de", "pse", "tsc", "msr", "pae", "mce", "cx8", "apic", "sep", "mtrr", "pge", "mca", 
+"cmov", "pat", "pse36", "clflush", "mmx", "fxsr", "sse", "sse2", "ss", "syscall", "nx", "rdtscp", "lm", "constant_tsc", "rep_good", "nopl", "eagerfpu", 
+"pni", "pclmulqdq", "vmx", "ssse3", "fma", "cx16", "pcid", "sse4_1", "sse4_2", "x2apic", "movbe", "popcnt", "tsc_deadline_timer", "aes", "xsave", "avx", 
+"f16c", "rdrand", "hypervisor", "lahf_lm", "abm", "3dnowprefetch", "tpr_shadow", "vnmi", "flexpriority", "ept", "vpid", "fsgsbase", "tsc_adjust", "bmi1", 
+"hle", "avx2", "smep", "bmi2", "erms", "rtm", "rdseed", "adx", "smap", "xsaveopt", "arat"], "model_name": "Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz", 
+"architecture": "x86_64"}}}
+
+
+#Node : 5fee1169-ad0a-41d3-ba5d-8f6741a8f0fd
+{"cpu_arch": "x86_64", "macs": ["00:e0:76:96:2f:8d"], "root_disk": {"rotational": true, "vendor": "0x1af4", "name": "/dev/vda", "wwn_vendor_extension": null,
+"hctl": null, "wwn_with_extension": null, "model": "", "wwn": null, "serial": null, "size": 53687091200}, "extra": {"network": {"eth0": {"vlan-challenged": 
+"off [fixed]", "rx-vlan-offload": "off [fixed]", "ipv4-network": "192.168.24.0", "rx-vlan-stag-filter": "off [fixed]", "highdma": "on [fixed]", 
+"tx-nocache-copy": "off", "tx-gso-robust": "off [fixed]", "tx-checksumming/tx-checksum-ip-generic": "on", "tx-vlan-stag-hw-insert": "off [fixed]", "serial": 
+"00:e0:76:96:2f:8d", "tx-mpls-segmentation": "off [fixed]", "l2-fwd-offload": "off [fixed]", "large-receive-offload": "off [fixed]", 
+"tx-checksumming/tx-checksum-ipv6": "off [fixed]", "tx-checksumming/tx-checksum-ipv4": "off [fixed]", "ipv4-netmask": "255.255.255.0", 
+"tcp-segmentation-offload/tx-tcp-segmentation": "on", "tcp-segmentation-offload": "on", "tx-udp_tnl-segmentation": "off [fixed]", "tx-gre-segmentation": 
+"off [fixed]", "fcoe-mtu": "off [fixed]", "tcp-segmentation-offload/tx-tcp-ecn-segmentation": "on", "tx-sctp-segmentation": "off [fixed]", 
+"tx-checksumming/tx-checksum-fcoe-crc": "off [fixed]", "ipv4": "192.168.24.101", "businfo": "virtio@0", "rx-vlan-stag-hw-parse": "off [fixed]", 
+"tx-vlan-offload": "off [fixed]", "tx-checksumming": "on", "udp-fragmentation-offload": "on", "tx-checksumming/tx-checksum-sctp": "off [fixed]", 
+"driver": "virtio_net", "tx-sit-segmentation": "off [fixed]", "busy-poll": "off [fixed]", "scatter-gather/tx-scatter-gather-fraglist": "off [fixed]", 
+"link": "yes", "rx-all": "off [fixed]", "tx-ipip-segmentation": "off [fixed]", "tcp-segmentation-offload/tx-tcp6-segmentation": "on", "rx-checksumming": 
+"on [fixed]", "loopback": "off [fixed]", "generic-segmentation-offload": "on", "tx-fcoe-segmentation": "off [fixed]", "tx-lockless": "off [fixed]", 
+"ipv4-cidr": 24, "ntuple-filters": "off [fixed]", "rx-vlan-filter": "on [fixed]", "receive-hashing": "off [fixed]", "scatter-gather/tx-scatter-gather": "on",
+"generic-receive-offload": "on", "rx-fcs": "off [fixed]", "scatter-gather": "on", "hw-tc-offload": "off [fixed]", "netns-local": "off [fixed]"}}, 
+"firmware": {"bios": {"date": "04/01/2014", "version": "1.9.1-5.el7_3.1", "vendor": "SeaBIOS"}}, "system": {"kernel": {"cmdline": 
+"ipa-inspection-callback-url=http://192.168.24.1:5050/v1/continue ipa-inspection-collectors=default,logs,extra-hardware systemd.journald.forward_to_console=
+yes BOOTIF=00:e0:76:96:2f:8d ipa-debug=1 ipa-inspection-dhcp-all-interfaces=1 ipa-collect-lldp=1 initrd=agent.ramdisk", "version": 
+"3.10.0-514.6.1.el7.x86_64", "arch": "x86_64"}, "product": {"version": "RHEL 7.3.0 PC (i440FX + PIIX, 1996)", "vendor": "Red Hat", "name": "KVM", 
+"uuid": "720CB959-EFCC-41D0-A7B0-17069A33D878"}}, "memory": {"total": {"size": 8589934592}}, "disk": {"vda": {"vendor": "0x1af4", "physical_block_size": 512,
+"rotational": 1, "optimal_io_size": 0, "size": 53}, "logical": {"count": 1}}, "cpu": {"physical_0": {"physid": 400, "product": 
+"Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz", "enabled_cores": 1, "vendor": "Intel Corp.", "frequency": 2000000000, "version": 
+"RHEL 7.3.0 PC (i440FX + PIIX, 1996)", "threads": 1, "cores": 1, "flags": "fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat
+pse36 clflush mmx fxsr sse sse2 ss syscall nx rdtscp x86-64 constant_tsc rep_good nopl eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic 
+movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust
+bmi1 hle avx2 smep bmi2 erms rtm rdseed adx smap xsaveopt"}, "physical_1": {"physid": 401, "product": "Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz", 
+"enabled_cores": 1, "vendor": "Intel Corp.", "frequency": 2000000000, "version": "RHEL 7.3.0 PC (i440FX + PIIX, 1996)", "threads": 1, "cores": 1, "flags": 
+"fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx rdtscp x86-64 constant_tsc 
+rep_good nopl eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor 
+lahf_lm abm 3dnowprefetch arat tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms rtm rdseed adx smap xsaveopt"}, 
+"logical": {"number": 2}, "physical": {"number": 2}}}, "all_interfaces": {"eth0": {"ip": "192.168.24.100", "mac": "00:e0:76:96:2f:8d"}}, "cpus": 2, 
+"boot_interface": "00:e0:76:96:2f:8d", "memory_mb": 8192, "ipmi_address": "", "numa_topology": {"nics": [{“numa_node”: 0, ”name”: “enp0s01”}], "ram": [
+{"numa_node": 0, "size_kb": 8180200}], "cpus": [{"numa_node": 0, "thread_siblings": [0, 1], "cpu": 0}]}, "error": null, "local_gb": 49, "interfaces": 
+{"eth0": {"ip": "192.168.24.100", "mac": "00:e0:76:96:2f:8d"}}, "inventory": {"bmc_address": "", "interfaces": [{"lldp": [], "product": "0x0001", 
+"vendor": "0x1af4", "name": "eth0", "has_carrier": true, "ipv4_address": "192.168.24.100", "client_id": null, "mac_address": "00:e0:76:96:2f:8d"}], 
+"disks": [{"rotational": true, "vendor": "0x1af4", "name": "/dev/vda", "wwn_vendor_extension": null, "hctl": null, "wwn_with_extension": null, "model": "", 
+"wwn": null, "serial": null, "size": 53687091200}], "boot": {"current_boot_mode": "bios", "pxe_interface": "00:e0:76:96:2f:8d"}, "system_vendor": 
+{"serial_number": "Not Specified", "product_name": "KVM", "manufacturer": "Red Hat"}, "memory": {"physical_mb": 8192, "total": 8376524800}, "cpu": 
+{"count": 2, "frequency": "2194.920", "flags": ["fpu", "vme", "de", "pse", "tsc", "msr", "pae", "mce", "cx8", "apic", "sep", "mtrr", "pge", "mca", "cmov", 
+"pat", "pse36", "clflush", "mmx", "fxsr", "sse", "sse2", "ss", "syscall", "nx", "rdtscp", "lm", "constant_tsc", "rep_good", "nopl", "eagerfpu", "pni", 
+"pclmulqdq", "vmx", "ssse3", "fma", "cx16", "pcid", "sse4_1", "sse4_2", "x2apic", "movbe", "popcnt", "tsc_deadline_timer", "aes", "xsave", "avx", "f16c", 
+"rdrand", "hypervisor", "lahf_lm", "abm", "3dnowprefetch", "tpr_shadow", "vnmi", "flexpriority", "ept", "vpid", "fsgsbase", "tsc_adjust", "bmi1", "hle", 
+"avx2", "smep", "bmi2", "erms", "rtm", "rdseed", "adx", "smap", "xsaveopt", "arat"], "model_name": "Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz", 
+"architecture": "x86_64"}}}
+
 Inventory Hardware Data - Output Format
 
 #Node : 8abe382e-3c97-4818-be22-1de32e2e6a3d
